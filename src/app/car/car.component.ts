@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, ContentChild, ElementRef, Input, ViewChild} from '@angular/core';
 import {CarClass} from "../cars/cars.component";
 
 @Component({
@@ -6,6 +6,11 @@ import {CarClass} from "../cars/cars.component";
     templateUrl: './car.component.html',
     styleUrls: ['./car.component.css']
 })
-export class CarComponent {
-    @Input() carItem: CarClass;
+export class CarComponent{
+    @Input() car: CarClass;
+    @ContentChild('carHeading') carHeading: ElementRef;
+
+    ngAfterViewInit(){
+        console.log(this.carHeading)
+    }
 }
