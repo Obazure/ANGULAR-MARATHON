@@ -6,11 +6,18 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./cars.component.css']
 })
 export class CarsComponent {
-    canAddCar = false;
+
+    addCarStatus = '';
+    inputText = '';
 
     constructor() {
-        setTimeout(() => {
-            this.canAddCar = true;
-        }, 4000)
+    }
+
+    addCar() {
+        this.addCarStatus = 'Машина добавлена';
+    }
+
+    onKeyUp(event){
+        this.inputText = event.target.value;
     }
 }
