@@ -7,13 +7,15 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 })
 export class CarsComponent {
     cars: CarClass[] = [
-        {name: 'Mers', year: 2017},
-        {name: 'MIstuba', year: 2016},
-        {name: 'somecar', year: 2015}
+        {name: 'Mers', year: 2017}
     ];
 
-    updateCarList (car: CarClass){
+    updateCarList(car: CarClass) {
         this.cars.push(car)
+    }
+
+    changeCarName() {
+        this.cars[0].name = 'New Car Name';
     }
 }
 
