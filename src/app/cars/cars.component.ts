@@ -10,6 +10,14 @@ export class CarsComponent {
     addCarStatus = false;
     carName = '';
 
+    cars = ['Mers', 'MIstuba', 'somecar'];
+
+    someitems = [
+        {name:'да', id: 3},
+        {name:'нет', id: 7},
+        {name:'или', id: 9},
+    ]
+
     constructor() {
     }
 
