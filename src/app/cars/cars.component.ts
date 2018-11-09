@@ -12,6 +12,14 @@ export class CarsComponent {
 
     cars = ['Mers', 'MIstuba', 'somecar', 'someanother'];
 
+    someitems = [
+        new Date(2018, 1, 1).toDateString(),
+        new Date(2017, 2, 2).toDateString(),
+        new Date(2016, 3, 3).toDateString(),
+        new Date(2015, 4, 4).toDateString(),
+        new Date(2014, 5, 5).toDateString(),
+        new Date(2013, 6, 6).toDateString(),
+    ];
 
     constructor() {
     }
@@ -21,6 +29,6 @@ export class CarsComponent {
     }
 
     setBigCarText(car: string) {
-        return car.length > 4 ? true : false;
+        return car.length > 4;
     }
 }

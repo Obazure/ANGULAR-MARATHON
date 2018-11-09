@@ -20,3 +20,19 @@
         </p>
     </li>
 </ul>
+
+<ul>
+    <li *ngFor="let item of someitems, let idx = index">
+        <p>
+            {{idx}}. {{item | date:'medium'}}
+        </p>
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let item of strings, let idx = index">
+        <p>
+            {{idx}}. {{item | uppercase}}
+        </p>
+    </li>
+</ul>
