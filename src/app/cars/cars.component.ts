@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
-    selector: '[app-cars]', // атрибут у дива в app.html
+    selector: '[app-cars]',
     templateUrl: './cars.component.html',
-    styleUrls: ['./cars.component.css']
+    styleUrls: ['./cars.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class CarsComponent {
     cars: [CarClass] = [
