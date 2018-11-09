@@ -10,7 +10,11 @@ export class CarsComponent {
     addCarStatus = false;
     carName = '';
 
-    cars = ['Mers', 'MIstuba', 'somecar', 'someanother'];
+    cars = [
+        {name: 'Mers', year: 2017},
+        {name: 'MIstuba', year: 2016},
+        {name: 'somecar', year: 2015}
+    ];
 
     someitems = [
         new Date(2018, 1, 1).toDateString(),

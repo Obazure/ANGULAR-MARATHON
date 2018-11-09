@@ -7,19 +7,9 @@
 <p>{{addCarStatus}}</p>
 <hr>
 
-<div class="app-car"></div>
+<app-car [carItem]="car" *ngFor="let car of cars"></app-car>
 
-<ul>
-    <li *ngFor="let car of cars, let idx = index">
-        <p [ngStyle]="{
-        backgroundColor: (idx + 1) % 2 === 0 ? 'red' : 'green',
-        'color':'white'
-        }"
-        [ngClass]="{'big-text':setBigCarText(car)}">
-            {{idx}}. {{car}}
-        </p>
-    </li>
-</ul>
+<hr>
 
 <ul>
     <li *ngFor="let item of someitems, let idx = index">

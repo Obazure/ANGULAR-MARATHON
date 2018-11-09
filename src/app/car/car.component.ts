@@ -1,16 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-    selector: '.app-car',
+    selector: 'app-car',
     templateUrl: './car.component.html',
     styleUrls: ['./car.component.css']
 })
 export class CarComponent {
-    carName = 'Mercedes';
-    carYear = 2018;
-
-    getName(){
-        return this.carName;
-    }
-
+    @Input() carItem: { name: string, year: number }
 }
