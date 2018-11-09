@@ -10,13 +10,8 @@ export class CarsComponent {
     addCarStatus = false;
     carName = '';
 
-    cars = ['Mers', 'MIstuba', 'somecar'];
+    cars = ['Mers', 'MIstuba', 'somecar', 'someanother'];
 
-    someitems = [
-        {name:'да', id: 3},
-        {name:'нет', id: 7},
-        {name:'или', id: 9},
-    ]
 
     constructor() {
     }
@@ -25,4 +20,7 @@ export class CarsComponent {
         this.addCarStatus = true;
     }
 
+    setBigCarText(car: string) {
+        return car.length > 4 ? true : false;
+    }
 }
