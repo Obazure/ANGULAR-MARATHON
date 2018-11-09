@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {CarClass} from "../cars/cars.component";
 
 @Component({
     selector: 'app-car',
@@ -6,5 +7,5 @@ import {Component, Input} from '@angular/core';
     styleUrls: ['./car.component.css']
 })
 export class CarComponent {
-    @Input() carItem: { name: string, year: number }
+    @Input() carItem: CarClass;
 }

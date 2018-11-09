@@ -1,28 +1,5 @@
-<input type="text" class="form-control" [(ngModel)]="carName">
-<button class="btn btn-primary" (click)="addCar()">Добавить машину.</button>
-<p *ngIf="addCarStatus; else successStatus">Машина добавлена.</p>
-<ng-template #successStatus>
-    <p>Машина не добавлена.</p>
-</ng-template>
-<p>{{addCarStatus}}</p>
+<app-add-car (onAddCar)="updateCarList($event)"></app-add-car>
+
 <hr>
 
 <app-car [carItem]="car" *ngFor="let car of cars"></app-car>
-
-<hr>
-
-<ul>
-    <li *ngFor="let item of someitems, let idx = index">
-        <p>
-            {{idx}}. {{item | date:'medium'}}
-        </p>
-    </li>
-</ul>
-
-<ul>
-    <li *ngFor="let item of strings, let idx = index">
-        <p>
-            {{idx}}. {{item | uppercase}}
-        </p>
-    </li>
-</ul>
