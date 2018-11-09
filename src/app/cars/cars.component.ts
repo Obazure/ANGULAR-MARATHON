@@ -7,7 +7,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
     encapsulation: ViewEncapsulation.None
 })
 export class CarsComponent {
-    cars: [CarClass] = [
+    cars: CarClass[] = [
         {name: 'Mers', year: 2017},
         {name: 'MIstuba', year: 2016},
         {name: 'somecar', year: 2015}
