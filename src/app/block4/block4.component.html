@@ -6,11 +6,18 @@
             [defaultColor]="'blue'"
         >{{ headerText }}</h3>
 
-<ul class="list-group">
-<li *ngFor="let item of items" (click)="onClick(item)" class="list-group-item">
+        <ul class="list-group">
+            <li *ngFor="let item of items" (click)="onClick(item)" class="list-group-item">
+                {{item}}
+            </li>
+        </ul>
 
-</li>
-</ul>
+        <div [ngSwitch]="current">
+            <p *ngSwitchCase="1">1</p>
+            <p *ngSwitchCase="2">2</p>
+            <p *ngSwitchCase="3">3</p>
+            <p *ngSwitchDefault>4</p>
+        </div>
     </div>
 </div>
 
