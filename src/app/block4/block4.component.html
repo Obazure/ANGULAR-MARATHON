@@ -1,14 +1,17 @@
 <div class="container">
-  <div class="col-xs-8 col-xs-offset-2">
+    <div class="col-xs-8 col-xs-offset-2">
 
 
+        <h3 [appDirectiveFirst]="'yellow'"
+            [defaultColor]="'blue'"
+        >{{ headerText }}</h3>
 
-    <h3 appDirectiveFirst>{{ headerText }}</h3>
+<ul class="list-group">
+<li *ngFor="let item of items" (click)="onClick(item)" class="list-group-item">
 
-
-
-
-  </div>
+</li>
+</ul>
+    </div>
 </div>
 
 
