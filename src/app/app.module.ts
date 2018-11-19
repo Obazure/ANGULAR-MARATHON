@@ -9,6 +9,8 @@ import { AddCarComponent } from './add-car/add-car.component';
 import { Block4Component } from './block4/block4.component';
 import { DirectiveFirstDirective } from './block4/directives/directive-first.directive';
 import { SimplePipesComponent } from './simple-pipes/simple-pipes.component';
+import { MyPipesTestComponent } from './my-pipes-test/my-pipes-test.component';
+import { DateWithUtcPipe } from './my-pipes-test/pipes/date-with-utc.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SimplePipesComponent } from './simple-pipes/simple-pipes.component';
     AddCarComponent,
     Block4Component,
     DirectiveFirstDirective,
-    SimplePipesComponent
+    SimplePipesComponent,
+    MyPipesTestComponent,
+    DateWithUtcPipe
   ],
   imports: [
     BrowserModule,
