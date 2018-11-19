@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import { AddCarComponent } from './add-car/add-car.component';
 import { Block4Component } from './block4/block4.component';
 import { DirectiveFirstDirective } from './block4/directives/directive-first.directive';
+import { SimplePipesComponent } from './simple-pipes/simple-pipes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DirectiveFirstDirective } from './block4/directives/directive-first.dir
     CarComponent,
     AddCarComponent,
     Block4Component,
-    DirectiveFirstDirective
+    DirectiveFirstDirective,
+    SimplePipesComponent
   ],
   imports: [
     BrowserModule,
