@@ -11,6 +11,8 @@ import { DirectiveFirstDirective } from './block4/directives/directive-first.dir
 import { SimplePipesComponent } from './simple-pipes/simple-pipes.component';
 import { MyPipesTestComponent } from './my-pipes-test/my-pipes-test.component';
 import { DateWithUtcPipe } from './my-pipes-test/pipes/date-with-utc.pipe';
+import { MyFilteringComponent } from './my-filtering/my-filtering.component';
+import { CarFilteringPipe } from './my-filtering/pipes/car-filtering.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DateWithUtcPipe } from './my-pipes-test/pipes/date-with-utc.pipe';
     DirectiveFirstDirective,
     SimplePipesComponent,
     MyPipesTestComponent,
-    DateWithUtcPipe
+    DateWithUtcPipe,
+    MyFilteringComponent,
+    CarFilteringPipe
   ],
   imports: [
     BrowserModule,
