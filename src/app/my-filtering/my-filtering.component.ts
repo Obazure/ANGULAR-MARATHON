@@ -24,4 +24,10 @@ export class MyFilteringComponent implements OnInit {
     ngOnInit() {
     }
 
+    addCar() {
+        this.cars.push(
+            {name: 'newCar', description: 'WTF;)'}
+        )
+    }
+
 }
