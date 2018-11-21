@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {of} from "rxjs/internal/observable/of";
 
 @Component({
     selector: 'app-my-filtering',
@@ -6,6 +7,9 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./my-filtering.component.css']
 })
 export class MyFilteringComponent implements OnInit {
+
+    asyncTitle;
+
     searchQueue = '';
     cars = [
         {name: 'Популярные Ford. Honda. Lada (ВАЗ) Mercedes-Benz.', description: 'some description'},
@@ -22,6 +26,9 @@ export class MyFilteringComponent implements OnInit {
     }
 
     ngOnInit() {
+        setTimeout(() => {
+            this.asyncTitle = of('asyncTitle. super');
+        }, 3000)
     }
 
     addCar() {

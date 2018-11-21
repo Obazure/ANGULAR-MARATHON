@@ -1,5 +1,7 @@
 <div class="container">
     <div class="col-xs-8 col-xs-offset-2">
+        <h3>{{asyncTitle | async}}</h3>
+        <hr/>
         <input type="text" class="form-control" [(ngModel)]="searchQueue">
         <button class="bt btn-primary" (click)="addCar()">Добавить</button>
         <hr>
