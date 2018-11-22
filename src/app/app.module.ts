@@ -13,6 +13,9 @@ import { MyPipesTestComponent } from './my-pipes-test/my-pipes-test.component';
 import { DateWithUtcPipe } from './my-pipes-test/pipes/date-with-utc.pipe';
 import { MyFilteringComponent } from './my-filtering/my-filtering.component';
 import { CarFilteringPipe } from './my-filtering/pipes/car-filtering.pipe';
+import { AnotherCarsComponent } from './another-cars/another-cars.component';
+import { AddAnotherCarComponent } from './another-cars/add-another-car/add-another-car.component';
+import { AnotherCarComponent } from './another-cars/another-car/another-car.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { CarFilteringPipe } from './my-filtering/pipes/car-filtering.pipe';
     MyPipesTestComponent,
     DateWithUtcPipe,
     MyFilteringComponent,
-    CarFilteringPipe
+    CarFilteringPipe,
+    AnotherCarsComponent,
+    AddAnotherCarComponent,
+    AnotherCarComponent
   ],
   imports: [
     BrowserModule,
