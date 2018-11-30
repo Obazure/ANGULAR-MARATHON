@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-forms',
@@ -7,8 +6,6 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-
-    @ViewChild('form') form: NgForm;
 
   constructor() { }
 
@@ -22,7 +19,7 @@ export class FormsComponent implements OnInit {
         text: 'Нет'
     }];
 
-    submitForm() {
-        console.log(this.form);
+    submitForm(form: HTMLFormElement) {
+        console.log(form);
     }
 }
