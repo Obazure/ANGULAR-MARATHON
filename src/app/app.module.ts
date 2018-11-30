@@ -16,6 +16,7 @@ import { CarFilteringPipe } from './my-filtering/pipes/car-filtering.pipe';
 import { AnotherCarsComponent } from './another-cars/another-cars.component';
 import { AddAnotherCarComponent } from './another-cars/add-another-car/add-another-car.component';
 import { AnotherCarComponent } from './another-cars/another-car/another-car.component';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AnotherCarComponent } from './another-cars/another-car/another-car.comp
     CarFilteringPipe,
     AnotherCarsComponent,
     AddAnotherCarComponent,
-    AnotherCarComponent
+    AnotherCarComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
