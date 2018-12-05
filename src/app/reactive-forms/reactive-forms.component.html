@@ -19,8 +19,11 @@
                         type="password"
                         class="form-control"
                         formControlName="pass">
-                <p class="invalid-feedback" *ngIf="form.get('user.pass').invalid && form.get('user.pass').touched">Введите
-                    пароль.</p>
+                <p class="invalid-feedback"
+                   *ngIf="form.get('user.pass').invalid && form.get('user.pass').touched">
+                    <span *ngIf="form.get('user.pass').errors['required']">Введите пароль.</span>
+                    <span *ngIf="form.get('user.pass').errors['lengthError']">Пароль не должен быть меньше {{charsCount}} символов.</span>
+                </p>
             </div>
             <p *ngIf="form.get('user').invalid && form.get('user').touched">Данные пользователя введены некоректно.</p>
         </div>

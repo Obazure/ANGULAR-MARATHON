@@ -16,12 +16,15 @@ export class ReactiveFormsComponent implements OnInit {
     }];
 
     form: FormGroup;
+    charsCount = 5;
 
     ngOnInit() {
         this.form = new FormGroup({
             user: new FormGroup({
-                email: new FormControl('', [Validators.required, Validators.email]),
-                pass: new FormControl('', [Validators.required]),
+                email: new FormControl('',
+                    [Validators.required, Validators.email]),
+                pass: new FormControl('',
+                    [Validators.required, this.checkForLength.bind(this)]),
             }),
             country: new FormControl('ru'),
             answer: new FormControl('no')
@@ -30,5 +33,15 @@ export class ReactiveFormsComponent implements OnInit {
 
     onSubmit() {
         console.log('Submited!', this.form);
+    }
+
+    checkForLength(control: FormControl) {
+        if (control.value.length <= this.charsCount) {
+            return {
+                lengthError: true
+            }
+        } else {
+            return null;
+        }
     }
 }
