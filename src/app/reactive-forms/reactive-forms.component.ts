@@ -22,7 +22,8 @@ export class ReactiveFormsComponent implements OnInit {
         this.form = new FormGroup({
             user: new FormGroup({
                 email: new FormControl('',
-                    [Validators.required, Validators.email]),
+                    [Validators.required, Validators.email],
+                    this.checkForEmail),
                 pass: new FormControl('',
                     [Validators.required, this.checkForLength.bind(this)]),
             }),
@@ -43,5 +44,19 @@ export class ReactiveFormsComponent implements OnInit {
         } else {
             return null;
         }
+    }
+
+    checkForEmail(control: FormControl): Promise<any> {
+
+        return new Promise<any>((resolve, reject) => {
+            setTimeout(() => {
+                    if (control.value === 'test@mail.ru') {
+                        resolve({emailIsUsed: true})
+                    } else {
+                        return null;
+                    }
+                }
+                , 3000)
+        })
     }
 }
