@@ -32,7 +32,7 @@
             <select
                     required
                     class="form-control"
-                    ngModel
+                    [ngModel]="defaultCountry"
                     name="country"
             >
                 <option value="ru">Россия</option>
@@ -46,7 +46,7 @@
                         type="radio"
                         name="answer"
                         [value]="ans.type"
-                        ngModel
+                        [ngModel]="defaultAnswer"
                         required
                 > {{ans.text}}
             </label>
