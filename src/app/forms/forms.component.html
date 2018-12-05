@@ -4,9 +4,11 @@
             <label>Email</label>
             <input
                     type="text"
+                    email
                     class="form-control"
                     ngModel
                     name="email"
+                    required
             >
         </div>
         <div class="form-group">
@@ -15,12 +17,14 @@
                     type="password"
                     class="form-control"
                     ngModel
-                    name="password"
+                    name="pass"
+                    required
             >
         </div>
         <div class="form-group">
             <label>Выберите страну</label>
             <select
+                    required
                     class="form-control"
                     ngModel
                     name="country"
@@ -34,12 +38,17 @@
             <label>
                 <input
                         type="radio"
+                        name="answer"
                         [value]="ans.type"
                         ngModel
-                        name="answer"
+                        required
                 > {{ans.text}}
             </label>
         </div>
-        <button class="btn btn-success" type="submit">Сохранить</button>
+        <button
+                class="btn btn-success"
+                type="submit"
+                [disabled]="!form.valid"
+        >Сохранить</button>
     </form>
 </div>
