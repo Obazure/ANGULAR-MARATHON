@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'app-forms',
@@ -6,6 +7,11 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
+
+    @ViewChild('form') form: NgForm;
+
+    formData = {};
+    isSubmitted = false;
 
     constructor() {
     }
@@ -24,7 +30,21 @@ export class FormsComponent implements OnInit {
         text: 'Нет'
     }];
 
-    submitForm(form: HTMLFormElement) {
-        console.log(form);
+    submitForm() {
+        this.isSubmitted = true;
+        this.formData = this.form.value;
+        this.form.reset();
+    }
+
+    addRandomEmail() {
+        const randEmail = 'wasdawdasd@gmail.com';
+        // this.form.setValue({
+        //     user: {email: randEmail, pass: ''},
+        //     country: '',
+        //     answer: ''
+        // })
+        this.form.form.patchValue({
+            user: {email: randEmail}
+        });
     }
 }
