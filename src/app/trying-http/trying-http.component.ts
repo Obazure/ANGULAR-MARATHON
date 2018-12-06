@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CarsService} from "./services/cars.service";
 
 @Component({
     selector: 'app-trying-http',
@@ -7,18 +8,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TryingHttpComponent implements OnInit {
 
-    cars = [
-        {
-            name: 'Ford',
-            color: 'white',
-            id: 1
-        }
-    ];
+    cars = [];
 
-    constructor() {
+    constructor(
+        private carsService: CarsService,
+    ) {
     }
 
     ngOnInit() {
+        this.carsService.getCars()
+            .subscribe((response)=>{
+                console.log(response);
+            });
     }
 
 }
