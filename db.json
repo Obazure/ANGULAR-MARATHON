@@ -4,6 +4,11 @@
       "name": "Ford",
       "color": "white",
       "id": 1
+    },
+    {
+      "name": "Audi",
+      "color": "#004000",
+      "id": 2
     }
   ]
 }
