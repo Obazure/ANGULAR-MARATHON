@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CarsService} from "./services/cars.service";
 
 interface Car {
@@ -12,11 +12,12 @@ interface Car {
     templateUrl: './trying-http.component.html',
     styleUrls: ['./trying-http.component.css']
 })
-export class TryingHttpComponent {
+export class TryingHttpComponent implements OnInit {
 
-    cars: Car[] = [];
+    cars;
+    appTitle;
+
     colors = ['red', 'green', 'blue', 'grey', 'yellow'];
-
     carName: string = '';
 
     constructor(
@@ -24,17 +25,20 @@ export class TryingHttpComponent {
     ) {
     }
 
+    ngOnInit() {
+        this.appTitle = this.carsService.getAppTitle();
+        this.loadCars();
+    }
+
     loadCars() {
-        this.carsService.getCars().subscribe((response: Car[]) => {
-            this.cars = response;
-        });
+        this.cars = this.carsService.getCars();
     }
 
 
     addCar() {
         this.carsService.addCar({name: this.carName, color: this.getRandColor()})
             .subscribe((car: Car) => {
-                this.cars.push(car);
+                this.loadCars()
             });
         this.carName = '';
     }
@@ -48,19 +52,14 @@ export class TryingHttpComponent {
         car.color = this.getRandColor();
         this.carsService.changeColor(car)
             .subscribe((car: Car) => {
-                console.log(car);
-                this.cars.map((car_i, position) => {
-                    if (car_i.id === car.id) {
-                        this.cars[position] = car;
-                    }
-                });
+                this.loadCars()
             });
     }
 
     deleteCar(car: Car) {
         this.carsService.deleteCar(car)
             .subscribe(response => {
-                    this.cars = this.cars.filter(c => c.id !== car.id);
+                    this.loadCars()
                 },
                 err => alert(err),
             )

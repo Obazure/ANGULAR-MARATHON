@@ -14,6 +14,14 @@ export class CarsService {
     ) {
     }
 
+    getAppTitle(): Observable<any> {
+        return this.http.get('http://localhost:3000/title')
+            .pipe(
+                map((data: any) => data.value),
+                catchError(this.handleError('getAppTitle', ''))
+            );
+    }
+
     getCars(): Observable<any> {
         const headers = new HttpHeaders({
             'Content-type': 'application/json; charset=utf8'
@@ -22,7 +30,7 @@ export class CarsService {
             .get<any>('http://localhost:3000/cars', {headers})
             .pipe(
                 map(res => res),
-                catchError(this.handleError('getCars',[]))
+                catchError(this.handleError('getCars', []))
             );
     }
 
@@ -38,7 +46,7 @@ export class CarsService {
         return this.http.delete(`http://localhost:3000/cars/${car.id}`)
     }
 
-    private handleError<T> (operation = 'operation', result?: T) {
+    private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
             alert(error.message);
             return of(result as T);
