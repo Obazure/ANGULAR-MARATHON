@@ -15,9 +15,9 @@ interface Car {
 export class TryingHttpComponent {
 
     cars: Car[] = [];
+    colors = ['red', 'green', 'blue', 'grey', 'yellow'];
 
     carName: string = '';
-    carColor: string = '';
 
     constructor(
         private carsService: CarsService,
@@ -32,9 +32,35 @@ export class TryingHttpComponent {
 
 
     addCar() {
-    this.carsService.addCar({name: this.carName, color: this.carColor})
-        .subscribe((response)=>{console.log(response)});
+        this.carsService.addCar({name: this.carName, color: this.getRandColor()})
+            .subscribe((car: Car) => {
+                this.cars.push(car);
+            });
         this.carName = '';
-        this.carColor = '';
+    }
+
+    getRandColor() {
+        const num = Math.round(Math.random() * (this.colors.length - 1));
+        return this.colors[num];
+    }
+
+    setNewColor(car: Car) {
+        car.color = this.getRandColor();
+        this.carsService.changeColor(car)
+            .subscribe((car: Car) => {
+                console.log(car);
+                this.cars.map((car_i, position) => {
+                    if (car_i.id === car.id) {
+                        this.cars[position] = car;
+                    }
+                });
+            });
+    }
+
+    deleteCar(car: Car) {
+        this.carsService.deleteCar(car)
+            .subscribe((response) => {
+                this.cars = this.cars.filter(c => c.id !== car.id);
+            })
     }
 }
