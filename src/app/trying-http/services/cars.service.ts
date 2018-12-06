@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
+import {catchError, map} from "rxjs/operators";
+import {of} from "rxjs/internal/observable/of";
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +18,12 @@ export class CarsService {
         const headers = new HttpHeaders({
             'Content-type': 'application/json; charset=utf8'
         });
-        return this.http.get('http://localhost:3000/cars', {headers});
+        return this.http
+            .get<any>('http://localhost:3000/cars', {headers})
+            .pipe(
+                map(res => res),
+                catchError(this.handleError('getCars',[]))
+            );
     }
 
     addCar(car): Observable<any> {
@@ -29,5 +36,12 @@ export class CarsService {
 
     deleteCar(car: any) {
         return this.http.delete(`http://localhost:3000/cars/${car.id}`)
+    }
+
+    private handleError<T> (operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+            alert(error.message);
+            return of(result as T);
+        };
     }
 }

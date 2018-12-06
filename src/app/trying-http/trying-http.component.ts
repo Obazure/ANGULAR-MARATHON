@@ -59,8 +59,10 @@ export class TryingHttpComponent {
 
     deleteCar(car: Car) {
         this.carsService.deleteCar(car)
-            .subscribe((response) => {
-                this.cars = this.cars.filter(c => c.id !== car.id);
-            })
+            .subscribe(response => {
+                    this.cars = this.cars.filter(c => c.id !== car.id);
+                },
+                err => alert(err),
+            )
     }
 }
