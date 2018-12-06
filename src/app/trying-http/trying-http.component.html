@@ -3,17 +3,15 @@
             [(ngModel)]="carName"
             type="text"
             class="form-control">
-    <input
-            type="color"
-            class="form-control"
-            [(ngModel)]="carColor">
-
     <button class="btn btn-primary" (click)="addCar()">Добавить авто</button>
     <button class="btn btn-primary" (click)="loadCars()">Загрузить машины</button>
     <hr>
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let car of cars">
-            <span class="badge">{{car.id}}</span> {{car.name}} ({{car.color}})
+            <span class="badge" [ngStyle]="{background: car.color}">{{car.id}}</span> {{car.name}} ({{car.color}})
+            <button type="button" class="btn btn-sm btn-info" (click)="setNewColor(car)">Изменить цвет.</button>
+            <button type="button" class="btn btn-sm btn-warning" (click)="deleteCar(car)">Х</button>
+
         </li>
     </ul>
 </div>
