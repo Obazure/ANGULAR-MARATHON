@@ -18,6 +18,8 @@ import {AddAnotherCarComponent} from './another-cars/add-another-car/add-another
 import {AnotherCarComponent} from './another-cars/another-car/another-car.component';
 import {FormsComponent} from './forms/forms.component';
 import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component';
+import { TryingHttpComponent } from './trying-http/trying-http.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -36,12 +38,14 @@ import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component'
         AddAnotherCarComponent,
         AnotherCarComponent,
         FormsComponent,
-        ReactiveFormsComponent
+        ReactiveFormsComponent,
+        TryingHttpComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
