@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CarsService} from "./services/cars.service";
 
+interface Car {
+    name: string;
+    color: string,
+    id: number
+}
+
 @Component({
     selector: 'app-trying-http',
     templateUrl: './trying-http.component.html',
@@ -8,7 +14,7 @@ import {CarsService} from "./services/cars.service";
 })
 export class TryingHttpComponent implements OnInit {
 
-    cars = [];
+    cars: Car[] = [];
 
     constructor(
         private carsService: CarsService,
@@ -16,10 +22,9 @@ export class TryingHttpComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.carsService.getCars()
-            .subscribe((response)=>{
-                console.log(response);
-            });
+        this.carsService.getCars().subscribe((response: Car[]) => {
+            this.cars = response;
+        });
     }
 
 }
