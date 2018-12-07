@@ -20,6 +20,10 @@ import {FormsComponent} from './forms/forms.component';
 import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component';
 import { TryingHttpComponent } from './trying-http/trying-http.component';
 import {HttpClientModule} from "@angular/common/http";
+import { RoutingAppComponent } from './routing-app/routing-app.component';
+import { RCarsComponent } from './routing-app/r-cars/r-cars.component';
+import { RHomepageComponent } from './routing-app/r-homepage/r-homepage.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
     declarations: [
@@ -39,13 +43,17 @@ import {HttpClientModule} from "@angular/common/http";
         AnotherCarComponent,
         FormsComponent,
         ReactiveFormsComponent,
-        TryingHttpComponent
+        TryingHttpComponent,
+        RoutingAppComponent,
+        RCarsComponent,
+        RHomepageComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
