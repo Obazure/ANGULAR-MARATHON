@@ -2,7 +2,7 @@
 <hr>
 
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let car of cars">
-    <a href="">{{car.name}}</a>
-  </li>
+    <li class="list-group-item" *ngFor="let car of cars">
+        <a [routerLink]="['/cars',car.id, car.name]">{{car.name}}</a>
+    </li>
 </ul>

@@ -24,6 +24,7 @@ import { RoutingAppComponent } from './routing-app/routing-app.component';
 import { RCarsComponent } from './routing-app/r-cars/r-cars.component';
 import { RHomepageComponent } from './routing-app/r-homepage/r-homepage.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { RCarComponent } from './routing-app/r-car/r-car.component';
 
 @NgModule({
     declarations: [
@@ -46,7 +47,8 @@ import {AppRoutingModule} from "./app-routing.module";
         TryingHttpComponent,
         RoutingAppComponent,
         RCarsComponent,
-        RHomepageComponent
+        RHomepageComponent,
+        RCarComponent
     ],
     imports: [
         BrowserModule,
