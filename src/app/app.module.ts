@@ -25,6 +25,7 @@ import { RCarsComponent } from './routing-app/r-cars/r-cars.component';
 import { RHomepageComponent } from './routing-app/r-homepage/r-homepage.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { RCarComponent } from './routing-app/r-car/r-car.component';
+import { NotFoundComponent } from './routing-app/not-found/not-found.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { RCarComponent } from './routing-app/r-car/r-car.component';
         RoutingAppComponent,
         RCarsComponent,
         RHomepageComponent,
-        RCarComponent
+        RCarComponent,
+        NotFoundComponent
     ],
     imports: [
         BrowserModule,
