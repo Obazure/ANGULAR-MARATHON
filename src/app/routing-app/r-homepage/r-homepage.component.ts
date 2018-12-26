@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-r-homepage',
-  templateUrl: './r-homepage.component.html',
-  styleUrls: ['./r-homepage.component.css']
+    selector: 'app-r-homepage',
+    templateUrl: './r-homepage.component.html',
+    styleUrls: ['./r-homepage.component.css']
 })
 export class RHomepageComponent implements OnInit {
 
-  constructor() { }
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute
+    ) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    openCarsPage() {
+        this.router.navigate(['cars'], {relativeTo: this.route});
+    }
 }
