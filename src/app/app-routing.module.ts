@@ -5,8 +5,11 @@ import {RHomepageComponent} from "./routing-app/r-homepage/r-homepage.component"
 import {RCarComponent} from "./routing-app/r-car/r-car.component";
 
 const routes: Routes = [
-    {path: 'cars', component: RCarsComponent},
-    {path: 'cars/:id/:carName', component: RCarComponent},
+    {
+        path: 'cars', component: RCarsComponent, children: [
+            {path: ':id/:carName', component: RCarComponent},
+        ]
+    },
     {path: '', component: RHomepageComponent}
 ];
 
