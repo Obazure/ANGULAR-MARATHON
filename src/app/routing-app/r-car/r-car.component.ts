@@ -18,7 +18,6 @@ export class RCarComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private rCarsService: RCarsService
     ) {
     }
 

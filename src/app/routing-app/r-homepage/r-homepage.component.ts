@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "../auth-service/auth.service";
 
 @Component({
     selector: 'app-r-homepage',
@@ -9,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class RHomepageComponent implements OnInit {
 
     constructor(
+        private auth: AuthService,
         private router: Router,
         private route: ActivatedRoute
     ) {
@@ -19,5 +21,13 @@ export class RHomepageComponent implements OnInit {
 
     openCarsPage() {
         this.router.navigate(['cars'], {relativeTo: this.route});
+    }
+
+    changeAuthStatus(status: string){
+        if (status === 'login'){
+            this.auth.logIn();
+        }else {
+            this.auth.logOut();
+        }
     }
 }

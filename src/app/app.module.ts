@@ -26,6 +26,10 @@ import { RHomepageComponent } from './routing-app/r-homepage/r-homepage.componen
 import {AppRoutingModule} from "./app-routing.module";
 import { RCarComponent } from './routing-app/r-car/r-car.component';
 import { NotFoundComponent } from './routing-app/not-found/not-found.component';
+import {AuthGuard} from "./routing-app/auth-guard/auth-guard.service";
+import {AuthService} from "./routing-app/auth-service/auth.service";
+import {RCarsService} from "./routing-app/services/r-cars.service";
+import { NewPageComponent } from './routing-app/new-page/new-page.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +54,8 @@ import { NotFoundComponent } from './routing-app/not-found/not-found.component';
         RCarsComponent,
         RHomepageComponent,
         RCarComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        NewPageComponent
     ],
     imports: [
         BrowserModule,
@@ -59,7 +64,7 @@ import { NotFoundComponent } from './routing-app/not-found/not-found.component';
         HttpClientModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
