@@ -28,6 +28,8 @@ import {AuthGuard} from "./routing-app/auth-guard/auth-guard.service";
 import {AuthService} from "./routing-app/auth-service/auth.service";
 import { NewPageComponent } from './routing-app/new-page/new-page.component';
 import {RCarsModule} from "./routing-app/r-cars/cars/r-cars.module";
+import { ColorDirective } from './routing-app/directives/color.directive';
+import {DirectivesModule} from "./routing-app/directives/directives.module";
 
 @NgModule({
     declarations: [
@@ -59,7 +61,8 @@ import {RCarsModule} from "./routing-app/r-cars/cars/r-cars.module";
         ReactiveFormsModule,
         HttpClientModule,
         AppRoutingModule,
-        RCarsModule
+        RCarsModule,
+        DirectivesModule
     ],
     providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {CarsRoutingModule} from "./cars-routing.module";
+import {DirectivesModule} from "../../directives/directives.module";
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import {CarsRoutingModule} from "./cars-routing.module";
     providers: [RCarsService],
     imports: [
         CommonModule,
-        CarsRoutingModule
+        CarsRoutingModule,
+        DirectivesModule
     ]
 })
 export class RCarsModule {
