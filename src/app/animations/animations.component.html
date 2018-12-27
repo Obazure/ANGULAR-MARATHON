@@ -1,6 +1,11 @@
+<!--<div-->
+        <!--[@clickedP]="state"-->
+        <!--(mousedown)="state = 'active'"-->
+        <!--(click)="changeState()">-->
+    <!--animations works!-->
+<!--</div>-->
+
 <div
-        [@clickedP]="state"
-        (mousedown)="state = 'active'"
-        (click)="changeState()">
-    animations works!
-</div>
+        [@multi]="multistate"
+        (click)="multistate = multistate === 'start' ? 'end' : 'start'"
+></div>
