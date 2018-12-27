@@ -5,7 +5,15 @@
     <!--animations works!-->
 <!--</div>-->
 
-<div
-        [@multi]="multistate"
-        (click)="multistate = multistate === 'start' ? 'end' : 'start'"
-></div>
+<button class="btn btn-primary" (click)="isVisible = !isVisible">Переключить</button>
+<div class="alert alert-danger"
+     [@divTrigger]="isVisible ? 'show' : 'hide'"
+     *ngIf="isVisible">
+    Lorem ipsum dolor sit amet.
+</div>
+
+
+<!--<div-->
+        <!--[@multi]="multistate"-->
+        <!--(click)="multistate = multistate === 'start' ? 'end' : 'start'"-->
+<!--&gt;</div>-->
