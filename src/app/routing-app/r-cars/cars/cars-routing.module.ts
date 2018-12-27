@@ -6,7 +6,7 @@ import {RCarComponent} from "../../r-car/r-car.component";
 
 const routes: Routes = [
     {
-        path: 'cars', component: RCarsComponent, children: [/* canActivate: [AuthGuard],*/
+        path: '', component: RCarsComponent, children: [/* canActivate: [AuthGuard],*/
             {path: ':id/:carName', component: RCarComponent},
         ]
     },

@@ -18,17 +18,15 @@ import {AddAnotherCarComponent} from './another-cars/add-another-car/add-another
 import {AnotherCarComponent} from './another-cars/another-car/another-car.component';
 import {FormsComponent} from './forms/forms.component';
 import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component';
-import { TryingHttpComponent } from './trying-http/trying-http.component';
+import {TryingHttpComponent} from './trying-http/trying-http.component';
 import {HttpClientModule} from "@angular/common/http";
-import { RoutingAppComponent } from './routing-app/routing-app.component';
-import { RHomepageComponent } from './routing-app/r-homepage/r-homepage.component';
+import {RoutingAppComponent} from './routing-app/routing-app.component';
+import {RHomepageComponent} from './routing-app/r-homepage/r-homepage.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { NotFoundComponent } from './routing-app/not-found/not-found.component';
+import {NotFoundComponent} from './routing-app/not-found/not-found.component';
 import {AuthGuard} from "./routing-app/auth-guard/auth-guard.service";
 import {AuthService} from "./routing-app/auth-service/auth.service";
-import { NewPageComponent } from './routing-app/new-page/new-page.component';
-import {RCarsModule} from "./routing-app/r-cars/cars/r-cars.module";
-import { ColorDirective } from './routing-app/directives/color.directive';
+import {NewPageComponent} from './routing-app/new-page/new-page.component';
 import {DirectivesModule} from "./routing-app/directives/directives.module";
 
 @NgModule({
@@ -61,7 +59,6 @@ import {DirectivesModule} from "./routing-app/directives/directives.module";
         ReactiveFormsModule,
         HttpClientModule,
         AppRoutingModule,
-        RCarsModule,
         DirectivesModule
     ],
     providers: [AuthGuard, AuthService],
