@@ -8,15 +8,15 @@ import {AuthGuard} from "./routing-app/auth-guard/auth-guard.service";
 import {NewPageComponent} from "./routing-app/new-page/new-page.component";
 
 const routes: Routes = [
-    {
-        path: 'cars', component: RCarsComponent, canActivate: [AuthGuard], children: [
-            {path: ':id/:carName', component: RCarComponent},
-        ]
-    },
+    // {
+    //     path: 'cars', component: RCarsComponent, canActivate: [AuthGuard], children: [
+    //         {path: ':id/:carName', component: RCarComponent},
+    //     ]
+    // },
     {path: '', component: RHomepageComponent},
     {path: 'new-page', component: NewPageComponent},
     {path: 'not-found', component: NotFoundComponent},
-    {path: '**', redirectTo: 'not-found'}
+    // {path: '**', redirectTo: 'not-found'}
 ];
 
 @NgModule({

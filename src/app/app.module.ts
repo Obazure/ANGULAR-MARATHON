@@ -21,15 +21,13 @@ import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component'
 import { TryingHttpComponent } from './trying-http/trying-http.component';
 import {HttpClientModule} from "@angular/common/http";
 import { RoutingAppComponent } from './routing-app/routing-app.component';
-import { RCarsComponent } from './routing-app/r-cars/r-cars.component';
 import { RHomepageComponent } from './routing-app/r-homepage/r-homepage.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { RCarComponent } from './routing-app/r-car/r-car.component';
 import { NotFoundComponent } from './routing-app/not-found/not-found.component';
 import {AuthGuard} from "./routing-app/auth-guard/auth-guard.service";
 import {AuthService} from "./routing-app/auth-service/auth.service";
-import {RCarsService} from "./routing-app/services/r-cars.service";
 import { NewPageComponent } from './routing-app/new-page/new-page.component';
+import {RCarsModule} from "./routing-app/r-cars/cars/r-cars.module";
 
 @NgModule({
     declarations: [
@@ -51,9 +49,7 @@ import { NewPageComponent } from './routing-app/new-page/new-page.component';
         ReactiveFormsComponent,
         TryingHttpComponent,
         RoutingAppComponent,
-        RCarsComponent,
         RHomepageComponent,
-        RCarComponent,
         NotFoundComponent,
         NewPageComponent
     ],
@@ -62,7 +58,8 @@ import { NewPageComponent } from './routing-app/new-page/new-page.component';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        RCarsModule
     ],
     providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
