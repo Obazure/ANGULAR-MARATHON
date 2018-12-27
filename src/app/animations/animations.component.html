@@ -1,3 +1,6 @@
-<div [@clickedP]="state" (click)="changeState()">
-  animations works!
+<div
+        [@clickedP]="state"
+        (mousedown)="state = 'active'"
+        (click)="changeState()">
+    animations works!
 </div>

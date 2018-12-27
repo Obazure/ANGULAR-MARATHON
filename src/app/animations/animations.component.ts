@@ -18,8 +18,14 @@ import {timeInterval} from "rxjs/operators";
                 width: '300px',
                 height: '300px'
             })),
-            transition('start => end', animate(1000)),
-            transition('end => start', animate('800ms 0.5s ease-out'))
+            state('active', style({
+                backgroundColor: 'yellow',
+                width: '170px',
+                height: '170px'
+            })),
+            transition('start <=> end', animate('1000ms ease-in')),
+            transition('start => active', animate(400)),
+            transition('active => end', animate(400))
         ])
     ]
 })
