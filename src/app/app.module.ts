@@ -28,6 +28,8 @@ import {AuthGuard} from "./routing-app/auth-guard/auth-guard.service";
 import {AuthService} from "./routing-app/auth-service/auth.service";
 import {NewPageComponent} from './routing-app/new-page/new-page.component';
 import {DirectivesModule} from "./routing-app/directives/directives.module";
+import { AnimationsComponent } from './animations/animations.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -51,7 +53,8 @@ import {DirectivesModule} from "./routing-app/directives/directives.module";
         RoutingAppComponent,
         RHomepageComponent,
         NotFoundComponent,
-        NewPageComponent
+        NewPageComponent,
+        AnimationsComponent
     ],
     imports: [
         BrowserModule,
@@ -59,7 +62,8 @@ import {DirectivesModule} from "./routing-app/directives/directives.module";
         ReactiveFormsModule,
         HttpClientModule,
         AppRoutingModule,
-        DirectivesModule
+        DirectivesModule,
+        BrowserAnimationsModule
     ],
     providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
