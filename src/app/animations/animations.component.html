@@ -1,19 +1,28 @@
 <!--<div-->
-        <!--[@clickedP]="state"-->
-        <!--(mousedown)="state = 'active'"-->
-        <!--(click)="changeState()">-->
-    <!--animations works!-->
+<!--[@clickedP]="state"-->
+<!--(mousedown)="state = 'active'"-->
+<!--(click)="changeState()">-->
+<!--animations works!-->
 <!--</div>-->
 
 <button class="btn btn-primary" (click)="isVisible = !isVisible">Переключить</button>
-<div class="alert alert-danger"
-     [@divTrigger]="isVisible ? 'show' : 'hide'"
-     *ngIf="isVisible">
-    Lorem ipsum dolor sit amet.
-</div>
+<!--<hr/>-->
+<!--<div class="alert alert-danger"-->
+     <!--@divTrigger-->
+     <!--*ngIf="isVisible">-->
+    <!--Lorem ipsum dolor sit amet.-->
+<!--</div>-->
+
+<hr/>
+<hr/>
+
+<div
+        [@changeWidth]="isVisible? 'a': 'b'"
+        style="height: 50px; width: 200px; background-color: red"
+></div>
 
 
 <!--<div-->
-        <!--[@multi]="multistate"-->
-        <!--(click)="multistate = multistate === 'start' ? 'end' : 'start'"-->
+<!--[@multi]="multistate"-->
+<!--(click)="multistate = multistate === 'start' ? 'end' : 'start'"-->
 <!--&gt;</div>-->

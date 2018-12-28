@@ -47,20 +47,28 @@ export const multi = trigger('multi', [
 ]);
 
 export const divTrigger = trigger('divTrigger', [
-    state('hide', style({
-        opacity: 0
-    })),
-    state('show', style({})),
-    transition('void => show', [
-        style({opacity: 0}),
+    transition(':enter', [/* void => * */
+        style({
+            opacity: 0
+        }),
         animate(500, style({
             opacity: 1
         }))
     ]),
-    transition('show => void', [
-        style({opacity: 1}),
+    transition(':leave', /* * => void */
         animate(500, style({
             opacity: 0
-        }))
-    ])
+        })))
 ]);
+
+export const changeWidthTrigger = trigger('changeWidth',
+    [
+        transition('* => *', [
+            animate(1000, style({
+                width: '10px'
+            })),
+            animate(1000, style({
+                width: '100%'
+            }))
+        ])
+    ]);

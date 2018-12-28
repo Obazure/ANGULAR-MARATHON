@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {clickedP, divTrigger, multi} from "./animations";
+import {changeWidthTrigger, clickedP, divTrigger, multi} from "./animations";
 
 
 @Component({
     selector: 'app-animations',
     templateUrl: './animations.component.html',
     styleUrls: ['./animations.component.css'],
-    animations: [clickedP, multi, divTrigger]
+    animations: [clickedP, multi, divTrigger, changeWidthTrigger]
 })
 export class AnimationsComponent implements OnInit {
 
