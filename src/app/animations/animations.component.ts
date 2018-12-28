@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {changeWidthTrigger, clickedP, divTrigger, multi} from "./animations";
+import {divTrigger} from "./animations";
 
 
 @Component({
     selector: 'app-animations',
     templateUrl: './animations.component.html',
     styleUrls: ['./animations.component.css'],
-    animations: [clickedP, multi, divTrigger, changeWidthTrigger]
+    animations: [divTrigger]
 })
 export class AnimationsComponent implements OnInit {
 
-    state = 'start';
-    multistate = 'start';
     isVisible = true;
 
     constructor() {
@@ -20,11 +18,11 @@ export class AnimationsComponent implements OnInit {
     ngOnInit() {
     }
 
-    changeState() {
-        this.state = 'end';
-        setTimeout(() => {
-            this.state = 'start';
-        }, 3000);
+    onAnimationStart(event: AnimationEvent) {
+        console.log('Start: ', event);
     }
 
+    onAnimationDone(event: AnimationEvent) {
+        console.log('Done: ', event);
+    }
 }

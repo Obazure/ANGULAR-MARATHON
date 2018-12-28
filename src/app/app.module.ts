@@ -54,7 +54,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         RHomepageComponent,
         NotFoundComponent,
         NewPageComponent,
-        AnimationsComponent
+        AnimationsComponent,
     ],
     imports: [
         BrowserModule,
