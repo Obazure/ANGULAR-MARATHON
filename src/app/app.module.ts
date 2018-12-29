@@ -7,11 +7,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import { CarComponent } from './car/car.component';
 import {CarService} from "./car/car.service";
+import { PowPipe } from './pipes/pow.pipe';
+import { ColorDirective } from './directives/color.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CarComponent
+        CarComponent,
+        PowPipe,
+        ColorDirective
     ],
     imports: [
         BrowserModule,
