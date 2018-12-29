@@ -26,12 +26,29 @@ describe('CarComponent', () => {
         expect(text).toEqual('My car header');
     });
 
-    it(`should inject CarService`, ()=>{
+    it(`should inject CarService`, () => {
         const carService = fixture.debugElement.injector.get(CarService);
         fixture.detectChanges();
-        expect(component.isCarVisible).toEqual(carService.getVisibility())
+        expect(component.isCarVisible).toEqual(carService.getVisibility());
+    });
 
-    })
+    it(`should display car if is visible`, () => {
+        const carService = fixture.debugElement.injector.get(CarService);
+        carService.showCar();
+        fixture.detectChanges();
+        const nativeEl = fixture.debugElement.nativeElement;
+        const text = nativeEl.querySelector('span').textContent;
+        expect(text).toEqual(`Car is visible`);
+    });
+
+    it(`shouldn't display car if isn't visible`, () => {
+        const carService = fixture.debugElement.injector.get(CarService);
+        carService.hideCar();
+        fixture.detectChanges();
+        const nativeEl = fixture.debugElement.nativeElement;
+        const text = nativeEl.querySelector('span').textContent;
+        expect(text).toEqual(`Nothing to show`);
+    });
 });
 
 
