@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import { CarComponent } from './car/car.component';
+import {CarService} from "./car/car.service";
 
 @NgModule({
     declarations: [
@@ -20,7 +21,7 @@ import { CarComponent } from './car/car.component';
         AppRoutingModule,
         BrowserAnimationsModule
     ],
-    providers: [],
+    providers: [CarService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
