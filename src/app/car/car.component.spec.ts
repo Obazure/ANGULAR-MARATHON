@@ -1,10 +1,13 @@
 import {CarComponent} from './car.component';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {CarService} from "./car.service";
+import {of} from "rxjs/internal/observable/of";
+import {delay} from "rxjs/operators";
 
 describe('CarComponent', () => {
     let fixture: ComponentFixture<CarComponent>;
     let component: CarComponent;
+    let carService: CarService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -13,6 +16,7 @@ describe('CarComponent', () => {
         });
         fixture = TestBed.createComponent(CarComponent);
         component = fixture.debugElement.componentInstance;
+        carService = fixture.debugElement.injector.get(CarService);
     });
 
     it('should create component instance', () => {
@@ -27,13 +31,11 @@ describe('CarComponent', () => {
     });
 
     it(`should inject CarService`, () => {
-        const carService = fixture.debugElement.injector.get(CarService);
         fixture.detectChanges();
         expect(component.isCarVisible).toEqual(carService.getVisibility());
     });
 
     it(`should display car if is visible`, () => {
-        const carService = fixture.debugElement.injector.get(CarService);
         carService.showCar();
         fixture.detectChanges();
         const nativeEl = fixture.debugElement.nativeElement;
@@ -42,38 +44,24 @@ describe('CarComponent', () => {
     });
 
     it(`shouldn't display car if isn't visible`, () => {
-        const carService = fixture.debugElement.injector.get(CarService);
         carService.hideCar();
         fixture.detectChanges();
         const nativeEl = fixture.debugElement.nativeElement;
         const text = nativeEl.querySelector('span').textContent;
         expect(text).toEqual(`Nothing to show`);
     });
+
+    it(`shouldn't get car name if not async`, () => {
+        spyOn(carService, 'getCarName').and.returnValue(of('testCar').pipe(delay(100)));
+        fixture.detectChanges();
+        expect(component.carName).toBe(undefined);
+    });
+
+    it(`should get car name if async`, async(() => {
+        spyOn(carService, 'getCarName').and.returnValue(of('testCar').pipe(delay(100)));
+        fixture.detectChanges();
+        fixture.whenStable().then(() => {
+            expect(component.carName).toEqual('testCar');
+        });
+    }));
 });
-
-
-// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-//
-// import { CarComponent } from './car.component';
-//
-// describe('CarComponent', () => {
-//   let component: CarComponent;
-//   let fixture: ComponentFixture<CarComponent>;
-//
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ CarComponent ]
-//     })
-//     .compileComponents();
-//   }));
-//
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(CarComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-//
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });

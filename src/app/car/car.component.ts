@@ -9,6 +9,7 @@ import {CarService} from "./car.service";
 export class CarComponent implements OnInit {
 
     isCarVisible: boolean;
+    carName: string;
 
     constructor(
         private carService: CarService
@@ -17,6 +18,7 @@ export class CarComponent implements OnInit {
 
     ngOnInit() {
         this.isCarVisible = this.carService.getVisibility()
+        this.carService.getCarName().subscribe( carName=>this.carName=carName);
     }
 
 }
