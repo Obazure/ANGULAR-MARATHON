@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
@@ -15,6 +15,9 @@ import {AuthModule} from "./auth/auth.module";
     AuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}
