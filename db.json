@@ -8,24 +8,24 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 1000,
     "currency": "RUB"
   },
   "categories": [
     {
       "name": "Дом",
-      "capacity": 15000,
+      "capacity": 1500,
       "id": 1
     },
     {
       "name": "Еда",
-      "capacity": 10000,
+      "capacity": 100,
       "id": 2
     },
     {
       "id": 3,
       "name": "Машина",
-      "capacity": 7000
+      "capacity": 700
     }
   ],
   "events": [
