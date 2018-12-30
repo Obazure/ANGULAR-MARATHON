@@ -1,16 +1,18 @@
-import {Injectable} from "@angular/core";
+import {Injectable, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
 import {User} from "../models/user.model";
 import {map} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class UsersService {
-  host: string = 'http://localhost:3000';
+  host: string;
 
   constructor(
     private http: HttpClient
   ) {
+    this.host = environment.api;
   }
 
   getUserByEmail(email: string): Observable<User> {
@@ -20,7 +22,7 @@ export class UsersService {
       );
   }
 
-  createNewUser(user: User){
+  createNewUser(user: User) {
     return this.http.post(`${this.host}/users`, user);
   }
 }
