@@ -18,7 +18,8 @@ export class BillPageComponent implements OnInit, OnDestroy {
 
   isLoaded = false;
 
-  constructor(private billService: BillService) { }
+  constructor(private billService: BillService) {
+  }
 
   ngOnInit() {
     this.sub1 = combineLatest(
@@ -42,7 +43,8 @@ export class BillPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub1.unsubscribe();
-    this.sub2.unsubscribe();
+    if (this.sub2) {
+      this.sub2.unsubscribe();
+    }
   }
-
 }
