@@ -28,7 +28,6 @@ export class BillPageComponent implements OnInit, OnDestroy {
       this.bill = data[0];
       this.currency = data[1];
       this.isLoaded = true;
-      console.log(this.currency);
     });
   }
 
