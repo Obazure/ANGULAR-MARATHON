@@ -8,14 +8,11 @@ import {CategoriesService} from "../../shared/services/categories.service";
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.scss']
 })
-export class AddCategoryComponent implements OnInit {
+export class AddCategoryComponent {
 
   @Output() onCategoryAdd = new EventEmitter<Category>();
 
   constructor(private categoriesService: CategoriesService) {
-  }
-
-  ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
