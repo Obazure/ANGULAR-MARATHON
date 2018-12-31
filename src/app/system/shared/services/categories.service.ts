@@ -13,7 +13,15 @@ export class CategoriesService {
     this.host = environment.api
   }
 
-  addCategory(category: Category){
+  addCategory(category: Category) {
     return this.http.post(`${this.host}/categories`, category);
+  }
+
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.host}/categories`);
+  }
+
+  updateCategory(category: Category): Observable<Category> {
+    return this.http.put<Category>(`${this.host}/categories/${category.id}`, category)
   }
 }

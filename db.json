@@ -14,7 +14,7 @@
   "categories": [
     {
       "name": "Дом",
-      "capacity": 1500,
+      "capacity": 1501,
       "id": 1
     },
     {
@@ -26,6 +26,11 @@
       "id": 3,
       "name": "Машина",
       "capacity": 700
+    },
+    {
+      "name": "Новая",
+      "capacity": 123,
+      "id": 4
     }
   ],
   "events": [
