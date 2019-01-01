@@ -22,4 +22,8 @@ export class EventsService {
     return this.http.get<WFMEvent[]>(`${this.host}/events`);
   }
 
+  getEventById(id: string): Observable<WFMEvent> {
+    return this.http.get<WFMEvent>(`${this.host}/events/${id}`);
+  }
+
 }

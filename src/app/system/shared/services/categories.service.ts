@@ -24,4 +24,8 @@ export class CategoriesService {
   updateCategory(category: Category): Observable<Category> {
     return this.http.put<Category>(`${this.host}/categories/${category.id}`, category)
   }
+
+  getCategoryById(id: number): Observable<Category> {
+    return this.http.get<Category>(`${this.host}/categories/${id}`)
+  }
 }
