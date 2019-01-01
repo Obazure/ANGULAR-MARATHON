@@ -8,10 +8,10 @@ import {Category} from "../../shared/models/category.model";
 })
 export class HistoryFilterComponent {
 
-  @Input() categories: Category[] = []
-
   @Output() onFilterCancel = new EventEmitter<any>();
   @Output() onFilterApply = new EventEmitter<any>();
+
+  @Input() categories: Category[] = [];
 
   selectedPeriod = 'd';
   selectedTypes = [];
@@ -27,9 +27,6 @@ export class HistoryFilterComponent {
     {type: 'income', label: 'Доход'},
     {type: 'outcome', label: 'Расход'}
   ];
-
-  constructor() {
-  }
 
   closeFilter() {
     this.selectedTypes = [];
@@ -54,13 +51,12 @@ export class HistoryFilterComponent {
     this.calculateInputParams('selectedCategories', checked, value);
   }
 
-  onApplyFiter() {
+  applyFilter() {
     this.onFilterApply.emit({
       types: this.selectedTypes,
       categories: this.selectedCategories,
       period: this.selectedPeriod
     });
-    this.onFilterCancel.emit();
   }
 
 }

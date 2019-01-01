@@ -5,6 +5,7 @@ import {Subscription} from "rxjs/internal/Subscription";
 import {Category} from "../shared/models/category.model";
 import {WFMEvent} from "../shared/models/event.model";
 import {combineLatest} from "rxjs/internal/observable/combineLatest";
+import * as moment from 'moment';
 
 @Component({
   selector: 'wfm-history-page',
@@ -18,34 +19,41 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   }
 
   isLoaded = false;
-  s1: Subscription;
+  sub1: Subscription;
 
   categories: Category[] = [];
   events: WFMEvent[] = [];
+
+  filteredEvents: WFMEvent[] = [];
 
   chartData = [];
 
   isFilterVisible = false;
 
   ngOnInit() {
-    this.s1 = combineLatest(
+    this.sub1 = combineLatest(
       this.categoriesService.getCategories(),
       this.eventService.getEvents()
     ).subscribe((data: [Category[], WFMEvent[]]) => {
       this.categories = data[0];
       this.events = data[1];
 
+      this.setOriginalEvents();
       this.calculateChartData();
 
       this.isLoaded = true;
     });
   }
 
+  private setOriginalEvents() {
+    this.filteredEvents = this.events.slice();
+  }
+
   calculateChartData(): void {
     this.chartData = [];
 
     this.categories.forEach((cat) => {
-      const catEvent = this.events.filter((e) => e.category === cat.id && e.type === 'outcome');
+      const catEvent = this.filteredEvents.filter((e) => e.category === cat.id && e.type === 'outcome');
       this.chartData.push({
         name: cat.name,
         value: catEvent.reduce((total, e) => {
@@ -64,18 +72,38 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     this.toggleFilterVisibility(true);
   }
 
-  onFilterCancel() {
+  onFilterApply(filterData) {
     this.toggleFilterVisibility(false);
+    this.setOriginalEvents();
+
+    const startPeriod = moment().startOf(filterData.period).startOf('d');
+    const endPeriod = moment().endOf(filterData.period).endOf('d');
+
+    this.filteredEvents = this.filteredEvents
+      .filter((e) => {
+        return filterData.types.indexOf(e.type) !== -1;
+      })
+      .filter((e) => {
+        return filterData.categories.indexOf(e.category.toString()) !== -1;
+      })
+      .filter((e) => {
+        const momentDate = moment(e.date, 'DD.MM.YYYY HH:mm:ss');
+        return momentDate.isBetween(startPeriod, endPeriod);
+      });
+
+    this.calculateChartData();
   }
 
-  onFilterApply(filterData) {
-    console.log(filterData);
-
+  onFilterCancel() {
+    this.toggleFilterVisibility(false);
+    this.setOriginalEvents();
+    this.calculateChartData();
   }
 
   ngOnDestroy() {
-    if (this.s1) {
-      this.s1.unsubscribe();
+    if (this.sub1) {
+      this.sub1.unsubscribe();
     }
   }
+
 }

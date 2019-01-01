@@ -10,11 +10,7 @@
       <div class="modal-body">
         <div class="form-group">
           <label class="control-label" for="period">Выберите период</label>
-          <select
-            class="form-control"
-            id="period"
-          [(ngModel)]="selectedPeriod"
-          >
+          <select class="form-control" id="period" [(ngModel)]="selectedPeriod">
             <option *ngFor="let p of timePeriods" [value]="p.type">{{p.label}}</option>
           </select>
         </div>
@@ -48,7 +44,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="closeFilter()">Отмена</button>
-          <button type="button" class="btn btn-primary" (click)="onApplyFiter()">Применить</button>
+          <button type="button" class="btn btn-primary" (click)="applyFilter()" >Применить</button>
         </div>
       </div>
     </div>
