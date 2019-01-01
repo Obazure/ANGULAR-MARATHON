@@ -7,9 +7,7 @@ import {AuthModule} from "./auth/auth.module";
 import {UsersService} from "./shared/services/users.service";
 import {AuthService} from "./shared/services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
-import {SystemModule} from "./system/system.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {NgxChartsModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -20,7 +18,6 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    SystemModule,
     BrowserAnimationsModule
   ],
   providers: [
