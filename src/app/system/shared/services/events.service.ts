@@ -18,4 +18,8 @@ export class EventsService {
     return this.http.post<WFMEvent>(`${this.host}/events`, event);
   }
 
+  getEvents(): Observable<WFMEvent[]> {
+    return this.http.get<WFMEvent[]>(`${this.host}/events`);
+  }
+
 }
