@@ -32,6 +32,11 @@ export class LoginComponent implements OnInit {
             text: 'Теперь вы можете зайти в систему',
             type: 'success'
           });
+        } else if (params['accessDenied']) {
+          this.showMessage({
+            text: 'Авторизуйтесь пожалуйста.',
+            type: 'warning'
+          })
         }
       });
 
@@ -66,7 +71,7 @@ export class LoginComponent implements OnInit {
             this.message.text = '';
             window.localStorage.setItem('user', JSON.stringify(user));
             this.authService.login();
-            this.router.navigate(['/system','bill']);
+            this.router.navigate(['/system', 'bill']);
           } else {
             this.showMessage({
               text: 'Пароль не верный',
