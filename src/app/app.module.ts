@@ -18,9 +18,9 @@ import {NotFoundComponent} from "./shared/components/not-found/not-found.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     AuthModule,
+    AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers: [
